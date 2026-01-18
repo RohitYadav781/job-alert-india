@@ -1,0 +1,79 @@
+<!-- Latest Notice Update -->
+<app-notice></app-notice>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-container">
+
+    <h1>
+      Latest <span class="highlight">Sarkari Jobs</span> in India
+    </h1>
+
+    <p>
+      Find government jobs by <strong>state</strong>,
+      <strong>exam</strong> or <strong>department</strong>.
+      Trusted & updated daily.
+    </p>
+
+    <!-- SEARCH BOX -->
+    <div class="job-search-box">
+
+      <!-- Job Keyword -->
+      <div class="search-field">
+        <mat-icon>search</mat-icon>
+        <input
+          type="text"
+          placeholder="Job title, exam or department"
+          [(ngModel)]="searchText"
+        />
+      </div>
+
+      <!-- State -->
+      <div class="search-field">
+        <mat-icon>location_on</mat-icon>
+        <select [(ngModel)]="selectedState">
+          <option value="">All States</option>
+          <option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Search Button -->
+      <button class="search-btn" (click)="searchJobs()">
+        Search Jobs
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section class="section">
+
+
+  <div class="job-grid">
+    <div
+      class="job-card"
+      *ngFor="let job of filteredJobsList"
+    >
+      <h3 class="job-title">{{ job.postName }}</h3>    
+    </div>
+  </div>
+
+  <div
+    class="no-data"
+    *ngIf="filteredJobsList.length === 0"
+  >
+    No jobs available.
+  </div>
+</section>
+
+<!-- OTHER SECTIONS -->
+ 
+<app-latest-jobs></app-latest-jobs>
+<app-defence></app-defence>
+<app-railway></app-railway>
+<app-result-declare></app-result-declare>
+<app-admit-card></app-admit-card>

@@ -1,0 +1,202 @@
+.hero {
+  background: #f8fbff;
+  padding: 56px 16px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0A58CA;
+}
+
+.hero .highlight {
+  color: #FF9933;
+}
+
+.hero p {
+  margin: 14px 0 32px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* =========================
+   Search Box
+========================= */
+.job-search-box {
+  display: flex;
+  gap: 12px;
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Input + Select */
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.search-field mat-icon {
+  color: #0A58CA;
+  font-size: 20px;
+}
+
+.search-field input,
+.search-field select {
+  border: none;
+  outline: none;
+  padding: 12px 4px;
+  font-size: 14px;
+  width: 100%;
+  background: transparent;
+}
+
+/* CTA Button */
+.search-btn {
+  background: #0A58CA;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+  background: #084298;
+}
+
+/* =========================
+   Mobile
+========================= */
+@media (max-width: 768px) {
+  .job-search-box {
+    flex-direction: column;
+  }
+
+  .search-btn {
+    padding: 14px;
+  }
+}
+
+
+
+
+
+/* ================= SECTION ================= */
+.section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+/* ================= SCROLLABLE GRID ================= */
+.job-grid {
+  max-height: 520px;                /* 🔥 fixed height */
+  overflow-y: auto;                 /* 🔥 internal scroll */
+  padding-right: 8px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Smooth scroll */
+.job-grid {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar (Chrome / Edge) */
+.job-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.job-grid::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.job-grid::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ================= JOB CARD ================= */
+.job-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.job-title {
+  font-size: 16px;
+  color: #1e40af;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Meta */
+.job-meta span {
+  display: block;
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+/* ================= APPLY BUTTON ================= */
+.apply-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.apply-link:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+/* ================= NO DATA ================= */
+.no-data {
+  text-align: center;
+  padding: 30px;
+  font-size: 16px;
+  color: #64748b;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .job-grid {
+    max-height: 420px;
+    grid-template-columns: 1fr;
+  }
+}

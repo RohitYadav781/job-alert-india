@@ -1,0 +1,43 @@
+.notice-bar {
+  background: #FF9933; /* Saffron */
+  color: #1f2937;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.notice-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 18s linear infinite;
+}
+
+.notice-label {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.notice-text {
+  font-weight: 500;
+}
+
+/* Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause on hover (desktop UX improvement) */
+.notice-bar:hover .notice-content {
+  animation-play-state: paused;
+}
+
+.apply-now{
+    color: red;
+     animation: colorBlink 1.5s ease-in-out 1;
+}

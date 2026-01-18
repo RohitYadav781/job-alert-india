@@ -1,0 +1,55 @@
+<section class="section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <h2>Latest Defence Jobs</h2>
+
+    <a
+      class="view-all" style="cursor: pointer;"
+      *ngIf="Jobs.length > 8"
+      (click)="toggleViewAll()"
+    >
+      {{ showAll ? 'Show Less' : 'View All' }}
+    </a>
+  </div>
+
+  <!-- Job Grid -->
+  <div class="job-grid">
+
+    <!-- Job Card -->
+    <div
+      class="job-card"
+      *ngFor="let job of displayedJobs; let i = index"
+    >
+      <h3 class="job-title">
+        {{ job.postName }}
+      </h3>
+
+      <p class="job-meta">
+        <span>
+          <strong>Board:</strong> {{ job.board }}
+        </span>
+
+        <span>
+          <strong>Qualification:</strong> {{ job.qualification }}
+        </span>
+
+        <span>
+          <strong>Last Date:</strong> {{ job.lastDate }}
+        </span>
+      </p>
+
+      <a
+        class="apply-link"
+        [routerLink]="['/job', job.id]"
+      >
+        Apply Now
+      </a>
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div class="no-data" *ngIf="Jobs.length === 0">
+    No bank jobs available.
+  </div>
+</section>

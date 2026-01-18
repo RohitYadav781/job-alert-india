@@ -1,0 +1,87 @@
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 16px;
+  background: #f8fbff; /* soft govt background */
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0A58CA; /* Govt Blue */
+}
+
+.view-all {
+  color: #FF9933; /* Saffron */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* Grid */
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* Job Card */
+.job-card {
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-left: 4px solid #0A58CA; /* Govt accent */
+  border-radius: 6px;
+  padding: 16px 16px 14px;
+  transition: box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 6px 16px rgba(10, 88, 202, 0.15);
+}
+
+/* Job Title */
+.job-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Meta */
+.job-meta {
+  font-size: 13px;
+  color: #4b5563;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+/* Apply Link */
+.apply-link {
+  color: #0A58CA;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.apply-link::before {
+  content: "➤ ";
+  color: #FF9933;
+}
+
+.apply-link:hover {
+  color: #FF9933;
+}

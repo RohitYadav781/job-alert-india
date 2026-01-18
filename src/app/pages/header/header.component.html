@@ -1,0 +1,66 @@
+<mat-toolbar class="site-toolbar mat-elevation-z6">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="brand" routerLink="/" aria-label="Sarkari Naukari Home">
+      <img src="../../../assets/logo/siteLogo.jpeg" alt="Sarkari Naukari Logo" class="logo" />
+<span class="site-title">
+  <span class="brand-blue">Sarkari</span>
+  <span class="brand-orange">Jobs</span>
+</span>
+    </div>
+
+    <span class="spacer"></span>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" role="navigation" aria-label="Primary">
+      <a mat-button routerLink="/jobs">Jobs</a>
+      <a mat-button routerLink="/results">Results</a>
+      <a mat-button routerLink="/admit-card">Admit Card</a>
+      <a mat-button routerLink="/exams">Exams</a>
+
+      <!-- More Menu (Desktop) -->
+      <button
+        mat-button
+        [matMenuTriggerFor]="moreMenu"
+        class="more-btn">
+        More
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      mat-icon-button
+      class="mobile-menu"
+      aria-label="Open menu"
+      [matMenuTriggerFor]="mobileMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+  </div>
+</mat-toolbar>
+
+<!-- 🔽 SHARED MENU (USED BY DESKTOP + MOBILE) -->
+<mat-menu #moreMenu="matMenu">
+  <button mat-menu-item routerLink="/answer-key">Answer Key</button>
+  <button mat-menu-item routerLink="/syllabus">Syllabus</button>
+
+  <mat-divider></mat-divider>
+</mat-menu>
+
+<!-- Mobile Menu -->
+<mat-menu #mobileMenu="matMenu">
+  <button mat-menu-item routerLink="/jobs">Jobs</button>
+  <button mat-menu-item routerLink="/results">Results</button>
+  <button mat-menu-item routerLink="/admit-card">Admit Card</button>
+  <button mat-menu-item routerLink="/exams">Exams</button>
+
+  <mat-divider></mat-divider>
+
+  <!-- Reuse same options -->
+  <button mat-menu-item routerLink="/answer-key">Answer Key</button>
+  <button mat-menu-item routerLink="/syllabus">Syllabus</button>
+
+  <mat-divider></mat-divider>
+</mat-menu>

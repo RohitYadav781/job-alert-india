@@ -1,0 +1,106 @@
+:host {
+  display: block;
+}
+
+/* =========================
+   Toolbar
+========================= */
+.site-toolbar {
+  padding: 0 8px;
+  background-color: #0A58CA; /* Govt Blue */
+  color: #ffffff;
+
+  a,
+  button {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  a:hover,
+  button:hover {
+    color: #FF9933; /* Saffron hover */
+  }
+
+  .active {
+    color: #FF9933;
+    border-bottom: 2px solid #FF9933;
+  }
+}
+
+/* =========================
+   Container
+========================= */
+.site-toolbar .container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Brand / Logo
+========================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* =========================
+   Site Title
+========================= */
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.brand-blue {
+  color: #ffffff;
+}
+
+.brand-orange {
+  color: #FF9933;
+}
+
+/* =========================
+   Navigation
+========================= */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* =========================
+   Responsive (Mobile)
+========================= */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: inline-flex;
+  }
+}

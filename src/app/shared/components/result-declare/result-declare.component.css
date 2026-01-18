@@ -1,0 +1,108 @@
+/* =========================
+   Common Section
+========================= */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 16px;
+  background: #f8fbff;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0A58CA; /* Govt Blue */
+}
+
+.view-all {
+  color: #FF9933; /* Saffron */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Grid Layout
+========================= */
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* =========================
+   Card (Shared)
+========================= */
+.job-card {
+  background: #ffffff;
+  border: 1px solid #dbe5f1;
+  border-left: 4px solid #0A58CA;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 6px 16px rgba(10, 88, 202, 0.15);
+}
+
+/* Title */
+.job-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Meta */
+.job-meta {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+/* Link */
+.apply-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0A58CA;
+  text-decoration: none;
+}
+
+.apply-link::before {
+  content: "➤ ";
+  color: #FF9933;
+}
+
+.apply-link:hover {
+  color: #FF9933;
+}
+
+/* =========================
+   Result-Specific Styling
+========================= */
+.result-card {
+  border-left-color: #FF9933; /* Result highlight */
+}
+
+.result-card h3::before {
+  content: "Result: ";
+  color: #0A58CA;
+  font-weight: 700;
+}
