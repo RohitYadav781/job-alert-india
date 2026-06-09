@@ -18,60 +18,70 @@
     <!-- SEARCH BOX -->
     <div class="job-search-box">
 
-      <!-- Job Keyword -->
       <div class="search-field">
         <mat-icon>search</mat-icon>
         <input
           type="text"
           placeholder="Job title, exam or department"
           [(ngModel)]="searchText"
+          (keyup)="searchJobs()"
         />
       </div>
 
-      <!-- State -->
-      <div class="search-field">
-        <mat-icon>location_on</mat-icon>
-        <select [(ngModel)]="selectedState">
-          <option value="">All States</option>
-          <option *ngFor="let state of states" [value]="state">
-            {{ state }}
-          </option>
-        </select>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEARCH RESULT SECTION -->
+<div *ngIf="searchText !== ''">
+
+  <section class="section">
+
+    <!-- Result Header -->
+    <div class="result-header" *ngIf="filteredJobsList.length > 0">
+      <h2>Search Results</h2>
+      <span>{{ filteredJobsList.length }} jobs found</span>
+    </div>
+
+    <!-- Job Grid -->
+    <div class="job-grid" *ngIf="filteredJobsList.length > 0">
+
+      <div class="job-card" *ngFor="let job of filteredJobsList">
+
+        <h3 class="job-title">
+          {{ job.postName }}
+        </h3>
+
+        <div class="job-meta">
+          <span><strong>Board:</strong> {{ job.board }}</span>
+          <span><strong>Qualification:</strong> {{ job.qualification }}</span>
+          <span><strong>Last Date:</strong> {{ job.lastDate }}</span>
+        </div>
+
+        <a
+          class="apply-link"
+          href="#"
+          target="_blank"
+        >
+          Apply Now →
+        </a>
+
       </div>
 
-      <!-- Search Button -->
-      <button class="search-btn" (click)="searchJobs()">
-        Search Jobs
-      </button>
-
     </div>
 
-  </div>
-</section>
-
-<!-- CATEGORY SECTION -->
-<section class="section">
-
-
-  <div class="job-grid">
-    <div
-      class="job-card"
-      *ngFor="let job of filteredJobsList"
-    >
-      <h3 class="job-title">{{ job.postName }}</h3>    
+    <!-- No Data -->
+    <div class="no-data" *ngIf="filteredJobsList.length === 0">
+      <h3>No jobs found</h3>
+      <p>Try changing your keywords</p>
     </div>
-  </div>
 
-  <!-- <div
-    class="no-data"
-    *ngIf="filteredJobsList.length === 0"
-  >
-    No jobs available.
-  </div> -->
-</section>
+  </section>
+
+</div>
 
 <!-- OTHER SECTIONS -->
- 
 <app-latest-jobs></app-latest-jobs>
 <app-defence></app-defence>
 <app-railway></app-railway>

@@ -1,0 +1,246 @@
+<div class="container add-job-container">
+  <div class="add-job-header">
+    <h1>Post a New Job</h1>
+    <p class="subtitle">Fill in the details below to post a new job opportunity</p>
+  </div>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="job-form">
+    <div class="form-section">
+      <h2>Job Information</h2>
+
+      <!-- Job Title -->
+      <div class="form-group">
+        <label for="title" class="form-label">
+          Job Title <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          class="form-control"
+          placeholder="e.g., Software Developer, Data Analyst"
+          [class.is-invalid]="submitted && f['title'].errors"
+        />
+        <small class="error-message" *ngIf="submitted && f['title'].errors">
+          <span *ngIf="f['title'].errors['required']">Job title is required</span>
+          <span *ngIf="f['title'].errors['minlength']">Job title must be at least 3 characters</span>
+        </small>
+      </div>
+
+      <!-- Position -->
+      <div class="form-group">
+        <label for="position" class="form-label">
+          Position <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="position"
+          formControlName="position"
+          class="form-control"
+          placeholder="e.g., Entry Level, Senior, Manager"
+          [class.is-invalid]="submitted && f['position'].errors"
+        />
+        <small class="error-message" *ngIf="submitted && f['position'].errors">
+          <span *ngIf="f['position'].errors['required']">Position is required</span>
+          <span *ngIf="f['position'].errors['minlength']">Position must be at least 2 characters</span>
+        </small>
+      </div>
+
+      <!-- Qualification -->
+      <div class="form-group">
+        <label for="qualification" class="form-label">
+          Qualification <span class="required">*</span>
+        </label>
+        <textarea
+          id="qualification"
+          formControlName="qualification"
+          class="form-control"
+          rows="3"
+          placeholder="e.g., Bachelor's degree in Computer Science, 2+ years of experience..."
+          [class.is-invalid]="submitted && f['qualification'].errors"
+        ></textarea>
+        <small class="error-message" *ngIf="submitted && f['qualification'].errors">
+          <span *ngIf="f['qualification'].errors['required']">Qualification is required</span>
+          <span *ngIf="f['qualification'].errors['minlength']">Qualification must be at least 5 characters</span>
+        </small>
+      </div>
+
+      <!-- Organization -->
+      <div class="form-group">
+        <label for="organization" class="form-label">
+          Organization <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="organization"
+          formControlName="organization"
+          class="form-control"
+          placeholder="Company or Organization name"
+          [class.is-invalid]="submitted && f['organization'].errors"
+        />
+        <small class="error-message" *ngIf="submitted && f['organization'].errors">
+          <span *ngIf="f['organization'].errors['required']">Organization is required</span>
+          <span *ngIf="f['organization'].errors['minlength']">Organization must be at least 2 characters</span>
+        </small>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <label for="location" class="form-label">
+          Location <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="location"
+          formControlName="location"
+          class="form-control"
+          placeholder="e.g., Mumbai, Delhi, Bangalore"
+          [class.is-invalid]="submitted && f['location'].errors"
+        />
+        <small class="error-message" *ngIf="submitted && f['location'].errors">
+          Organization is required
+        </small>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description" class="form-label">
+          Job Description <span class="required">*</span>
+        </label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+          rows="4"
+          placeholder="Detailed job description, responsibilities, and requirements..."
+          [class.is-invalid]="submitted && f['description'].errors"
+        ></textarea>
+        <small class="error-message" *ngIf="submitted && f['description'].errors">
+          <span *ngIf="f['description'].errors['required']">Description is required</span>
+          <span *ngIf="f['description'].errors['minlength']">Description must be at least 10 characters</span>
+        </small>
+      </div>
+
+      <!-- Apply URL -->
+      <div class="form-group">
+        <label for="applyUrl" class="form-label">
+          Application Link <span class="required">*</span>
+        </label>
+        <input
+          type="url"
+          id="applyUrl"
+          formControlName="applyUrl"
+          class="form-control"
+          placeholder="https://example.com/apply"
+          [class.is-invalid]="submitted && f['applyUrl'].errors"
+        />
+        <small class="error-message" *ngIf="submitted && f['applyUrl'].errors">
+          Application link is required
+        </small>
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loading"
+      >
+        <span *ngIf="!loading">Post Job</span>
+        <span *ngIf="loading">Posting...</span>
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="resetForm()"
+        [disabled]="loading"
+      >
+        Clear Form
+      </button>
+    </div>
+  </form>
+
+  <!-- API Documentation Section -->
+  <div class="api-documentation">
+    <h2>API Integration for Developers</h2>
+    <p class="api-info">Integrate job posting functionality into your application using our API endpoints.</p>
+
+    <div class="api-endpoint">
+      <h3>POST - Add Job</h3>
+      <div class="code-block">
+        <code>POST /api/jobs/add</code>
+      </div>
+      <p><strong>Request Body:</strong></p>
+      <pre><code>{{ '{' }}
+  "title": "Software Developer",
+  "position": "Senior",
+  "qualification": "Bachelor's in CS, 3+ years experience",
+  "organization": "Tech Corp",
+  "location": "Bangalore",
+  "description": "We are hiring senior developers...",
+  "applyUrl": "https://example.com/apply"
+{{ '}' }}</code></pre>
+
+      <p><strong>Response (Success):</strong></p>
+      <pre><code>{{ '{' }}
+  "success": true,
+  "message": "Job posted successfully",
+  "data": {{ '{' }}
+    "id": 123,
+    "title": "Software Developer",
+    "position": "Senior",
+    "qualification": "Bachelor's in CS, 3+ years experience",
+    "organization": "Tech Corp",
+    "location": "Bangalore",
+    "description": "We are hiring senior developers...",
+    "applyUrl": "https://example.com/apply",
+    "createdAt": "2026-06-09T10:30:00Z"
+  {{ '}' }}
+{{ '}' }}</code></pre>
+
+      <p><strong>Error Response:</strong></p>
+      <pre><code>{{ '{' }}
+  "success": false,
+  "message": "Validation error",
+  "errors": {{ '{' }}
+    "title": "Title is required",
+    "qualification": "Qualification must be at least 5 characters"
+  {{ '}' }}
+{{ '}' }}</code></pre>
+    </div>
+
+    <div class="api-endpoint">
+      <h3>GET - Retrieve All Jobs</h3>
+      <div class="code-block">
+        <code>GET /api/jobs</code>
+      </div>
+      <p><strong>Response:</strong></p>
+      <pre><code>{{ '{' }}
+  "success": true,
+  "data": [
+    {{ '{' }}
+      "id": 1,
+      "title": "Software Developer",
+      "position": "Senior",
+      "qualification": "Bachelor's in CS",
+      "organization": "Tech Corp",
+      "location": "Bangalore",
+      "description": "Senior developer position...",
+      "applyUrl": "https://example.com/apply",
+      "createdAt": "2026-06-09T10:30:00Z"
+    {{ '}' }}
+  ]
+{{ '}' }}</code></pre>
+    </div>
+
+    <div class="api-endpoint">
+      <h3>GET - Retrieve Job by ID</h3>
+      <div class="code-block">
+        <code>GET /api/jobs/:id</code>
+      </div>
+      <p><strong>Example:</strong></p>
+      <p><code>GET /api/jobs/123</code></p>
+    </div>
+  </div>
+</div>

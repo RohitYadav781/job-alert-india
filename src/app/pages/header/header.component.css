@@ -93,6 +93,24 @@
 }
 
 /* =========================
+   Add Job Button
+========================= */
+.add-job-btn {
+  background-color: #FF9933 !important;
+  color: #0A58CA !important;
+  font-weight: 700 !important;
+  padding: 8px 16px !important;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.add-job-btn:hover {
+  background-color: #FF8000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 153, 51, 0.3);
+}
+
+/* =========================
    Responsive (Mobile)
 ========================= */
 @media (max-width: 768px) {

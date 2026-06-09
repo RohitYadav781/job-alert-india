@@ -55,5 +55,24 @@ private baseUrl = environment.apiUrl;
     return bankJobs;
   }
 
+  // Add new job - integrates with backend API
+  addJob(jobData: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}jobs/add`, jobData);
+  }
+
+  // Alternative: Local storage for development without backend
+  addJobLocal(jobData: any): Observable<any> {
+    const newJob: Job = {
+      id: Math.max(...this.jobs.map(j => j.id), 0) + 1,
+      title: jobData.title,
+      organization: jobData.organization,
+      location: jobData.location,
+      postDate: new Date().toISOString().split('T')[0],
+      description: jobData.description,
+      applyUrl: jobData.applyUrl
+    };
+    this.jobs.push(newJob);
+    return of(newJob);
+  }
 
 }
